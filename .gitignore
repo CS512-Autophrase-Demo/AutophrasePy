@@ -1,0 +1,3 @@
+dist/*
+autophrase.egg-info/*
+.DS_Store

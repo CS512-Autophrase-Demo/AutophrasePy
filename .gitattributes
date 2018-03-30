@@ -1,2 +1,3 @@
 # Auto detect text files and perform LF normalization
-* text=auto
+* text=autoautophrase/_version.py export-subst
+autophrase/_version.py export-subst
