@@ -6,20 +6,43 @@ from codecs import open
 from os import path
 import versioneer
 
+import os
+import sys
+import subprocess
+
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-def compile_java():
-    return
+class install(_install):
+    def run(self):
+        print(999)
+        print(888)
+        print(777)
+        _install.run(self)
 
-def compile_c():
-    return
+    def compile_treetagger(self):
+        return
+
+    def compile_segphrase(self):
+        CXX = "g++"
+        if sys.platform == 'darwin':
+            CXX = "g++-6"
+        if sys.platform == 'linux':
+            CXX = "g++"
+        return_code = subprocess.call(["make", "all","CXX="+CXX])
+        if return_code > 0:
+            exit(return_code)
+
+data_files = [('bin', ['bin/segphrase_segment', 'bin/segphrase_train'])]
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
+
+cmdclass=versioneer.get_cmdclass()
+cmdclass.update({'install': install})
 
 setup(
     # This is the name of your project. The first time you publish this
@@ -42,7 +65,7 @@ setup(
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
     version=versioneer.get_version(),  # Required
-    cmdclass=versioneer.get_cmdclass(),
+    cmdclass=cmdclass,
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
@@ -152,7 +175,7 @@ setup(
     # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
     #
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    data_files=[],  # Optional
+    data_files=data_files,  # Optional
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
