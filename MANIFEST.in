@@ -1,3 +1,5 @@
 include LICENSE
 recursive-include autophrase *
-recursive-include data *
+recursive-include data *include versioneer.py
+include autophrase/_version.py
+include versioneer.py
