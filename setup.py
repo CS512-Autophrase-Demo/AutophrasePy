@@ -21,6 +21,8 @@ class install(_install):
         print(999)
         print(888)
         print(777)
+        self.compile_treetagger()
+        self.compile_segphrase()
         _install.run(self)
 
     def compile_treetagger(self):
@@ -32,11 +34,11 @@ class install(_install):
             CXX = "g++-6"
         if sys.platform == 'linux':
             CXX = "g++"
-        return_code = subprocess.call(["make", "all","CXX="+CXX])
+        return_code = subprocess.call(["make", "all","CXX="+CXX], cwd="autophrase")
         if return_code > 0:
             exit(return_code)
 
-data_files = [('bin', ['bin/segphrase_segment', 'bin/segphrase_train'])]
+package_data = {"autophrase": ['bin/segphrase_segment', 'bin/segphrase_train']}
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
@@ -109,7 +111,6 @@ setup(
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Build Tools',
 
         # Pick your license as you wish
         'License :: OSI Approved :: Apache License',
@@ -137,8 +138,7 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=['autophrase'],  # Required
-    package_dir={'autophrase': 'autophrase'},
+    packages=find_packages(),  # Required
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
@@ -148,34 +148,20 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[],  # Optional
 
-    # List additional groups of dependencies here (e.g. development
-    # dependencies). Users will be able to install these using the "extras"
-    # syntax, for example:
-    #
-    #   $ pip install sampleproject[dev]
-    #
-    # Similar to `install_requires` above, these must be valid existing
-    # projects.
-    extras_require={  # Optional
-        'dev': [],
-        'test': [],
-    },
-
     # If there are data files included in your packages that need to be
     # installed, specify them here.
     #
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
-    package_data={  # Optional
-        'sample': [''],
-    },
+    package_dir={'autophrase': 'autophrase'},
+    package_data=package_data,
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
     # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
     #
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    data_files=data_files,  # Optional
+    data_files={},  # Optional
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
