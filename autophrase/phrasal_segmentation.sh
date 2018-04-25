@@ -1,16 +1,17 @@
-MODEL=${MODEL:- "models/ErrTest"}
-TEXT_TO_SEG=${TEXT_TO_SEG:-data/ErrTest/test.txt}
+MODEL=${MODEL:- "models/DBLP"}
+TEXT_TO_SEG=${TEXT_TO_SEG:-data/EN/DBLP.5K.txt}
+HIGHLIGHT_MULTI=${HIGHLIGHT_MULTI:- 0.5}
+HIGHLIGHT_SINGLE=${HIGHLIGHT_SINGLE:- 0.8}
 
 SEGMENTATION_MODEL=${MODEL}/segmentation.model
 TOKEN_MAPPING=${MODEL}/token_mapping.txt
 
-HIGHLIGHT_MULTI=0.8
-HIGHLIGHT_SINGLE=1.0
 ENABLE_POS_TAGGING=1
 THREAD=10
 
 green=`tput setaf 2`
 reset=`tput sgr0`
+
 echo ${green}===Compilation===${reset}
 
 COMPILE=${COMPILE:- 1}
@@ -48,6 +49,7 @@ if [ ! $LANGUAGE == "JA" ] && [ ! $LANGUAGE == "CN" ]  && [ ! $LANGUAGE == "OTHE
 fi
 
 POS_TAGS=tmp/pos_tags_tokenized_text_to_seg.txt
+
 ### END Part-Of-Speech Tagging ###
 
 echo ${green}===Phrasal Segmentation===${reset}
