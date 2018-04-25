@@ -51,9 +51,12 @@ class Autophrase:
                         " --highlight-multi " + self.HIGHLIGHT_MULTI + \
                         " --highlight-single " + self.HIGHLIGHT_SINGLE
         else:
-            command = self.root_path + "/bin/segphrase_segment --pos_tag" + \
+            command = self.root_path + "/bin/segphrase_segment" + \
                         " --thread " + self.THREAD + \
                         " --model " + self.SEGMENTATION_MODEL + \
+                        " --text_to_seg_file " + self.tmp + "/tokenized_text_to_seg.txt" + \
+                        " --text_seg_pos_tags_file " + self.tmp + "/pos_tags_tokenized_text_to_seg.txt" + \
+                        " --output_tokenized_degmented_sentences " + self.tmp + "/tokenized_segmented_sentences.txt" + \
                         " --highlight-multi " + self.HIGHLIGHT_MULTI + \
                         " --highlight-single " + self.HIGHLIGHT_SINGLE
         os.system(command)
