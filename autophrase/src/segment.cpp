@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
         posIn = tryOpen(TEXT_TO_SEG_POS_TAGS_FILE, "r");
     }
 
-    FILE* out = tryOpen("tmp/tokenized_segmented_sentences.txt", "w");
+    FILE* out = tryOpen(OUTPUT_TOKENIZED_SEGMENTED_SENTENCES, "w");
 
     while (getLine(in)) {
         stringstream sin(line);

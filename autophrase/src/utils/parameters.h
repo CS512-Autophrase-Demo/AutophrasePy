@@ -25,12 +25,12 @@ typedef char POS_ID_TYPE;
 typedef unsigned long long ULL;
 
 
-const string TRAIN_FILE = "tmp/tokenized_train.txt";
-const string TRAIN_CAPITAL_FILE = "tmp/case_tokenized_train.txt";
-const string STOPWORDS_FILE = "tmp/tokenized_stopwords.txt";
-const string ALL_FILE = "tmp/tokenized_all.txt";
-const string QUALITY_FILE = "tmp/tokenized_quality.txt";
-const string POS_TAGS_FILE = "tmp/pos_tags_tokenized_train.txt";
+string TRAIN_FILE = "tmp/tokenized_train.txt";
+string TRAIN_CAPITAL_FILE = "tmp/case_tokenized_train.txt";
+string STOPWORDS_FILE = "tmp/tokenized_stopwords.txt";
+string ALL_FILE = "tmp/tokenized_all.txt";
+string QUALITY_FILE = "tmp/tokenized_quality.txt";
+string POS_TAGS_FILE = "tmp/pos_tags_tokenized_train.txt";
 
 const TOKEN_ID_TYPE BREAK = -911;
 
@@ -51,8 +51,9 @@ string LABEL_METHOD = "DPDN"; // EPEN, EPDN, DPDN
 string SEGMENTATION_MODEL = "";
 double SEGMENT_MULTI_WORD_QUALITY_THRESHOLD = 0.5;
 double SEGMENT_SINGLE_WORD_QUALITY_THRESHOLD = 0.8;
-const string TEXT_TO_SEG_FILE = "tmp/tokenized_text_to_seg.txt";
-const string TEXT_TO_SEG_POS_TAGS_FILE = "tmp/pos_tags_tokenized_text_to_seg.txt";
+string TEXT_TO_SEG_FILE = "tmp/tokenized_text_to_seg.txt";
+string TEXT_TO_SEG_POS_TAGS_FILE = "tmp/pos_tags_tokenized_text_to_seg.txt";
+string OUTPUT_TOKENIZED_SEGMENTED_SENTENCES = "tmp/tokenized_segmented_sentences.txt";
 
 
 #endif

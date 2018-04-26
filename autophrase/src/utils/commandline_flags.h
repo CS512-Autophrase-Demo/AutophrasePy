@@ -43,6 +43,24 @@ void parseCommandFlags(int argc, char* argv[])
             fromString(argv[++ i], SEGMENT_MULTI_WORD_QUALITY_THRESHOLD);
         } else if (!strcmp(argv[i], "--highlight-single")) {
             fromString(argv[++ i], SEGMENT_SINGLE_WORD_QUALITY_THRESHOLD);
+        } else if (!strcmp(argv[i], "--train_file")) {
+            fromString(argv[++ i], TRAIN_FILE);
+        } else if (!strcmp(argv[i], "--train_capital_file")) {
+            fromString(argv[++ i], TRAIN_CAPITAL_FILE);
+        } else if (!strcmp(argv[i], "--stopwords_file")) {
+            fromString(argv[++ i], STOPWORDS_FILE);
+        } else if (!strcmp(argv[i], "--all_file")) {
+            fromString(argv[++ i], ALL_FILE);
+        } else if (!strcmp(argv[i], "--quality_file")) {
+            fromString(argv[++ i], QUALITY_FILE);
+        } else if (!strcmp(argv[i], "--pos_tags_file")) {
+            fromString(argv[++ i], POS_TAGS_FILE);
+        } else if (!strcmp(argv[i], "--text_to_seg_file")) {
+            fromString(argv[++ i], TEXT_TO_SEG_FILE);
+        } else if (!strcmp(argv[i], "--text_seg_pos_tags_file")) {
+            fromString(argv[++ i], TEXT_TO_SEG_POS_TAGS_FILE);
+        } else if (!strcmp(argv[i], "--output_tokenized_degmented_sentences")) {
+            fromString(argv[++ i], OUTPUT_TOKENIZED_SEGMENTED_SENTENCES);
         } else {
             fprintf(stderr, "[Warning] Unknown Parameter: %s\n", argv[i]);
         }
