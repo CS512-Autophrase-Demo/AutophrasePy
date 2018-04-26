@@ -72,7 +72,7 @@ def pos_tag(language, thread, raw, tmp):
 		tagger = root_path + "/tools/treetagger/bin/tree-tagger"
 		parfile = root_path + "/tools/treetagger/lib/spanish-utf8.par"
 	else:
-		sys.exit("[ERROR]: Tree tagger does not support the language.");
+		sys.exit("[ERROR]: Tree tagger does not support the language.")
 
 	curent_directory = os.getcwd()
 	# os.chdir(root_path + "/tools/treetagger")
