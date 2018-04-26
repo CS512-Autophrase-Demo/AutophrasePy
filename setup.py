@@ -10,6 +10,7 @@ from glob import glob
 import os
 import sys
 import subprocess
+from shutil import copyfile
 
 here = path.abspath(path.dirname(__file__))
 
@@ -24,6 +25,10 @@ class install(_install):
         _install.run(self)
 
     def compile_treetagger(self):
+        if sys.platform.startswith('darwin'):
+            copyfile('autophrase/tools/treetagger/bin/tree-tagger-mac', 'autophrase/tools/treetagger/bin/tree-tagger')
+        if sys.platform.startswith('linux'):
+            copyfile('autophrase/tools/treetagger/bin/tree-tagger-linux', 'autophrase/tools/treetagger/bin/tree-tagger')
         return
 
     def compile_segphrase(self):
@@ -36,7 +41,8 @@ class install(_install):
         if return_code > 0:
             exit(return_code)
 
-data_file = [('autophrase/bin', ['autophrase/bin/segphrase_train', 'autophrase/bin/segphrase_segment'])]
+data_file = [('autophrase/bin', ['autophrase/bin/segphrase_train', 'autophrase/bin/segphrase_segment']),
+            ('autophrase/tools/treetagger/bin', ['autophrase/tools/treetagger/bin/tree-tagger'])]
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
