@@ -1,6 +1,6 @@
 import os
 import shutil
-from pos_tag import pos_tag
+from .pos_tag import pos_tag
 
 class Autophrase:
     def __init__(self):
