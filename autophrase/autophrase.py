@@ -72,10 +72,10 @@ class Autophrase:
         os.system(command)
         #os.system("java " + self.TOKENIZER + " -m segmentation -i " + self.TEXT_TO_SEG + " -segmented tmp/tokenized_segmented_sentences.txt -o " + self.model + "/segmentation.txt -tokenized_raw tmp/raw_tokenized_text_to_seg.txt -tokenized_id tmp/tokenized_text_to_seg.txt -c N")
 
-a = Autophrase()
-a.tokenize("DBLP_full.txt", "EN")
-#a.LANGUAGE = "EN"
-a.pos_tagging()
-a.phrase_segmentation()
-#a.TEXT_TO_SEG = "data/DBLP_full.txt"
-a.generate_output()
+# a = Autophrase()
+# a.tokenize("DBLP_full.txt", "EN")
+# #a.LANGUAGE = "EN"
+# a.pos_tagging()
+# a.phrase_segmentation()
+# #a.TEXT_TO_SEG = "data/DBLP_full.txt"
+# a.generate_output()
