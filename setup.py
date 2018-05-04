@@ -10,7 +10,7 @@ from glob import glob
 import os
 import sys
 import subprocess
-from shutil import copyfile
+import shutil
 
 here = path.abspath(path.dirname(__file__))
 
@@ -26,9 +26,9 @@ class install(_install):
 
     def compile_treetagger(self):
         if sys.platform.startswith('darwin'):
-            copyfile('autophrase/tools/treetagger/bin/tree-tagger-mac', 'autophrase/tools/treetagger/bin/tree-tagger')
+            shutil.copy2('autophrase/tools/treetagger/bin/tree-tagger-mac', 'autophrase/tools/treetagger/bin/tree-tagger')
         if sys.platform.startswith('linux'):
-            copyfile('autophrase/tools/treetagger/bin/tree-tagger-linux', 'autophrase/tools/treetagger/bin/tree-tagger')
+            shutil.copy2('autophrase/tools/treetagger/bin/tree-tagger-linux', 'autophrase/tools/treetagger/bin/tree-tagger')
         return
 
     def compile_segphrase(self):
