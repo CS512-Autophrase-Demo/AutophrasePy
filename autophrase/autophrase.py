@@ -3,7 +3,7 @@ import shutil
 from .pos_tag import pos_tag
 
 class Autophrase:
-    def __init__(self, filename=None, language="EN", pos_tagging=True, highlight_multi=0.8, highlight_single=1.0, thread=10):
+    def __init__(self, filename=None, language="EN", pos_tagging=True, highlight_multi=0.5, highlight_single=0.8, thread=10):
         assert (filename is not None), "file name must be specified!"
         valid_language = ["EN", "CN", "JA", "ES", "AR", "FR", "IT", "RU"]
         assert (language in valid_language), "Invalid language! Only support EN, CN, JA, ES, AR, FR, IT, RU!"
@@ -42,7 +42,6 @@ class Autophrase:
         os.mkdir(self.tmp)
         print("===Tokenization===")
         tokenized_text_to_seg = self.tmp + "/tokenized_text_to_seg.txt"
-        CASE = self.tmp + "/case_tokenized_text_to_seg.txt"
         os.system("java " + self.tokenizer + " -m direct_test -i " + self.text_to_seg + " -o " + tokenized_text_to_seg + " -t " + token_mapping + " -c N -thread " + self.thread)
 
     def pos_tagging(self):
