@@ -2,7 +2,6 @@ import os
 from glob import glob
 from shutil import copyfile
 from math import floor
-import subprocess
 import sys
 import threading
 # from download_parameter_files import download_parameter_files
@@ -36,7 +35,7 @@ def execute_tagger(file, tagger, parfile):
 	# 		subprocess.call(command, stdin = token_file, stdout = tagged)
 
 
-def pos_tag(language, thread, raw, tmp):
+def pos_tag(language, num_thread, raw, tmp):
 	root_path = os.path.dirname(os.path.abspath(__file__))
 	# download_parameter_files(language, root_path)
 	for file in glob(tmp + "/split_files*"):
@@ -44,11 +43,11 @@ def pos_tag(language, thread, raw, tmp):
 
 	print("Current step: Splitting files...")	
 	with open(raw) as f:
-		num_lines = floor(sum(1 for _ in f)/thread)
-	if num_lines <= 0 or thread == 1:
-		copyfile(raw, tmp + "/split_files.00000")
+		num_lines = floor(sum(1 for _ in f)/num_thread)
+	if num_lines <= 0 or num_thread == 1:
+		copyfile(raw, tmp + "/split_files.0")
 	else:
-		split_file(num_lines, thread, raw, tmp)
+		split_file(num_lines, num_thread, raw, tmp)
 
 	for file in glob(tmp + "/split_files.*"):
 		one_line_per_word(file)
@@ -91,12 +90,11 @@ def pos_tag(language, thread, raw, tmp):
 	# os.chdir(curent_directory)
 	print("Current step: Merging...")
 
-	read_files = glob(tmp + "/split_files.*.tagged")
 	with open(tmp + "/pos_tags.txt", "w") as outfile:
-	    for f in read_files:
-	        with open(f, "r") as infile:
-	            outfile.write(infile.read())
+		for filenum in range(num_thread):
+			file_name = tmp + "/split_files." + str(filenum) + ".token.tagged"
+			with open(file_name, "r") as infile:
+				outfile.write(infile.read())
 
 	for file in glob(tmp + "/split_files*"):
 		os.remove(file)
-
