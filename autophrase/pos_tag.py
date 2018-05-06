@@ -77,7 +77,7 @@ def pos_tag(language, num_thread, raw, tmp):
 	# os.chdir(root_path + "/tools/treetagger")
 	thread_list = []
 
-	for file in glob(curent_directory + "/tmp/split_files.*.token"):
+	for file in glob(tmp + "/split_files.*.token"):
 		t = threading.Thread(target = execute_tagger, args = (file, tagger, parfile,))
 		thread_list.append(t)
 
