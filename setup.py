@@ -73,10 +73,10 @@ setup(
     packages=find_packages(),  # Required
     install_requires=[],  # Optional
     include_package_data=True,
-    package_data={
-        'autophrase': ['bin/segphrase_train', 'bin/segphrase_segment']
-    },
-    # data_files=data_file,  # Optional Wow this is not necessary here!
+    # package_data={
+    #     'autophrase': ['bin/segphrase_train', 'bin/segphrase_segment', 'tools/treetagger/bin/tree-tagger']
+    # },
+    data_files=data_file,  # Optional Wow this is not necessary here!
     entry_points={},
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/shangjingbo1226/AutoPhrase/issues'
