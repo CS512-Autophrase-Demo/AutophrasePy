@@ -1,0 +1,25 @@
+BAD_POS_TAGS = "https://raw.githubusercontent.com/shangjingbo1226/AutoPhrase/master/data/BAD_POS_TAGS.txt"
+
+EN_WIKI_ALL = "https://raw.githubusercontent.com/shangjingbo1226/AutoPhrase/master/data/EN/wiki_all.txt"
+EN_WIKI_QUALITY = "https://raw.githubusercontent.com/shangjingbo1226/AutoPhrase/master/data/EN/wiki_quality.txt"
+EN_STOPWORDS = "https://raw.githubusercontent.com/shangjingbo1226/AutoPhrase/master/data/EN/stopwords.txt"
+EN_TOKENMAPPING = "https://raw.githubusercontent.com/CS512-Autophrase-Demo/AutoPhrase/master/models/DBLP/token_mapping.txt"
+DBLP_MODEL = "https://github.com/CS512-Autophrase-Demo/AutoPhrase/blob/master/models/DBLP/segmentation.model?raw=true"
+
+CN_WIKI_ALL = "https://raw.githubusercontent.com/shangjingbo1226/AutoPhrase/master/data/CN/wiki_all.txt"
+CN_WIKI_QUALITY = "https://raw.githubusercontent.com/shangjingbo1226/AutoPhrase/master/data/CN/wiki_quality.txt"
+CN_STOPWORDS = "https://raw.githubusercontent.com/shangjingbo1226/AutoPhrase/master/data/CN/stopwords.txt"
+CN_TOKENMAPPING = ""
+CN_MODEL = ""
+
+JA_WIKI_ALL = ""
+JA_WIKI_QUALITY = ""
+JA_STOPWORDS = ""
+JA_TOKENMAPPING = ""
+JA_MODEL = ""
+
+AR_WIKI_ALL = "https://raw.githubusercontent.com/CS512-Autophrase-Demo/AutoPhrase/master/data/AR/wiki_all.txt"
+AR_WIKI_QUALITY = "https://raw.githubusercontent.com/CS512-Autophrase-Demo/AutoPhrase/master/data/AR/wiki_quality.txt"
+AR_STOPWORDS = "https://raw.githubusercontent.com/CS512-Autophrase-Demo/AutoPhrase/master/data/AR/stopwords.txt"
+AR_TOKENMAPPING = ""
+AR_MODEL = ""
