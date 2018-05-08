@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
         for (PATTERN_ID_TYPE i = 0; i < patterns.size(); ++ i) {
             order.push_back(make_pair(patterns[i].currentFreq, i));
         }
-        Dump::dumpRankingList("tmp/frequent_patterns.txt", order);
+        Dump::dumpRankingList(TMP_FOLDER + "/frequent_patterns.txt", order);
     }
 
     // feature extraction
@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
         // check the quality
         if (INTERMEDIATE) {
             char filename[256];
-            sprintf(filename, "tmp/iter_%d_quality", iteration);
+            sprintf(filename, "%s/iter_%d_quality", TMP_FOLDER.c_str(), iteration);
             Dump::dumpResults(filename);
         }
 
@@ -142,7 +142,7 @@ int main(int argc, char* argv[])
 
             if (INTERMEDIATE) {
                 char filename[256];
-                sprintf(filename, "tmp/iter_%d_pos_tags.txt", iteration);
+                sprintf(filename, "%s/iter_%d_pos_tags.txt", TMP_FOLDER.c_str(), iteration);
                 Dump::dumpPOSTransition(filename);
             }
 
@@ -179,14 +179,14 @@ int main(int argc, char* argv[])
         // check the quality
         if (INTERMEDIATE) {
             char filename[256];
-            sprintf(filename, "tmp/iter_%d_frequent_quality", iteration);
+            sprintf(filename, "%s/iter_%d_frequent_quality", TMP_FOLDER.c_str(), iteration);
             Dump::dumpResults(filename);
         }
     }
 
     cerr << "Dumping results..." << endl;
-    Dump::dumpResults("tmp/final_quality");
-    Dump::dumpSegmentationModel("tmp/segmentation.model");
+    Dump::dumpResults(TMP_FOLDER + "/final_quality");
+    Dump::dumpSegmentationModel(TMP_FOLDER + "/segmentation.model");
 
     cerr << "Done." << endl;
 

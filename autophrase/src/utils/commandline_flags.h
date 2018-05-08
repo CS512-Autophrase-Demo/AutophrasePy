@@ -61,6 +61,8 @@ void parseCommandFlags(int argc, char* argv[])
             fromString(argv[++ i], TEXT_TO_SEG_POS_TAGS_FILE);
         } else if (!strcmp(argv[i], "--output_tokenized_degmented_sentences")) {
             fromString(argv[++ i], OUTPUT_TOKENIZED_SEGMENTED_SENTENCES);
+        } else if (!strcmp(argv[i], "--tmp")) {
+            fromString(argv[++ i], TMP_FOLDER);
         } else {
             fprintf(stderr, "[Warning] Unknown Parameter: %s\n", argv[i]);
         }

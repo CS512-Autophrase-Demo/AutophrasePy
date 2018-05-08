@@ -54,6 +54,6 @@ double SEGMENT_SINGLE_WORD_QUALITY_THRESHOLD = 0.8;
 string TEXT_TO_SEG_FILE = "tmp/tokenized_text_to_seg.txt";
 string TEXT_TO_SEG_POS_TAGS_FILE = "tmp/pos_tags_tokenized_text_to_seg.txt";
 string OUTPUT_TOKENIZED_SEGMENTED_SENTENCES = "tmp/tokenized_segmented_sentences.txt";
-
+string TMP_FOLDER = "tmp";
 
 #endif
